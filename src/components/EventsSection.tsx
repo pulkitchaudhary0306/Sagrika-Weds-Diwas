@@ -3,7 +3,13 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import type { WeddingDaySchedule, WeddingEvent, WeddingEventVisual } from "@/data/wedding";
-import { HaldiInteraction, MehendiInteraction, SangeetInteraction } from "./EventInteractions";
+import {
+  HaldiInteraction,
+  MehendiInteraction,
+  SangeetInteraction,
+  VidaiInteraction,
+  WeddingInteraction,
+} from "./EventInteractions";
 import { KalashIllustration, MandapIllustration } from "./SacredArtwork";
 
 const MONTHS: Record<string, number> = {
@@ -137,12 +143,20 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
   const [haldiDone, setHaldiDone] = useState(false);
   const [mehendiDone, setMehendiDone] = useState(false);
   const [sangeetDone, setSangeetDone] = useState(false);
+  const [weddingDone, setWeddingDone] = useState(false);
+  const [vidaiDone, setVidaiDone] = useState(false);
 
   const isHaldi = event.interactionType === "haldi";
   const isMehendi = event.interactionType === "mehendi";
   const isSangeet = event.interactionType === "sangeet";
+  const isWedding = event.interactionType === "wedding";
+  const isVidai = event.interactionType === "vidai";
   const locked =
-    (isHaldi && !haldiDone) || (isMehendi && !mehendiDone) || (isSangeet && !sangeetDone);
+    (isHaldi && !haldiDone) ||
+    (isMehendi && !mehendiDone) ||
+    (isSangeet && !sangeetDone) ||
+    (isWedding && !weddingDone) ||
+    (isVidai && !vidaiDone);
   const unlocked = !locked;
   const calUrl = googleCalendarUrl(event);
   const mapUrl = directionsUrl(event);
@@ -287,6 +301,20 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
             onComplete={() => setSangeetDone(true)}
           />
         )}
+        {isWedding && (
+          <WeddingInteraction
+            event={event}
+            completed={weddingDone}
+            onComplete={() => setWeddingDone(true)}
+          />
+        )}
+        {isVidai && (
+          <VidaiInteraction
+            event={event}
+            completed={vidaiDone}
+            onComplete={() => setVidaiDone(true)}
+          />
+        )}
       </div>
     </article>
   );
@@ -308,7 +336,7 @@ export default function EventsSection({
           <MandapIllustration className="events-section__mandap" />
           <KalashIllustration className="events-section__kalash" />
         </div>
-        <p>3 days of celebration · 8 – 10 December 2026</p>
+        <p>4 days of celebration · 8 – 11 December 2026</p>
         <h2 id="events-title">
           <span className="events-section__title-hi" lang="hi">
             मांगलिक कार्यक्रम

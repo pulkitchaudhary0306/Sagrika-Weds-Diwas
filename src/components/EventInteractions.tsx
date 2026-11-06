@@ -40,6 +40,7 @@ function ArrowLeftIcon() {
 const CHECK_THROTTLE_MS = 240;
 const MAX_PARTICLES = 90;
 const HALDI_COLORS = ["#e3a321", "#efb63f", "#cf7917", "#f3c35a"];
+const WEDDING_COLORS = ["#f3c35a", "#e8a52a", "#e8c6c2", "#b4934c"];
 
 type Particle = {
   x: number;
@@ -62,6 +63,7 @@ function ScratchReveal({
   onProgress,
   threshold = 0.55,
   brushRadius = 50,
+  variant = "haldi",
   label = "Rub to reveal",
   instruction = "Rub to reveal",
   fallbackLabel = "Reveal artwork",
@@ -73,6 +75,7 @@ function ScratchReveal({
   onProgress?: (ratio: number) => void;
   threshold?: number;
   brushRadius?: number;
+  variant?: "haldi" | "wedding";
   label?: string;
   instruction?: string;
   fallbackLabel?: string;
@@ -103,9 +106,15 @@ function ScratchReveal({
     (ctx: CanvasRenderingContext2D, w: number, h: number) => {
       ctx.globalCompositeOperation = "source-over";
       const grad = ctx.createLinearGradient(0, 0, w, h);
-      grad.addColorStop(0, "#e8a52a");
-      grad.addColorStop(0.48, "#d88919");
-      grad.addColorStop(1, "#efb842");
+      if (variant === "wedding") {
+        grad.addColorStop(0, "#7c2236");
+        grad.addColorStop(0.5, "#962e46");
+        grad.addColorStop(1, "#681b2c");
+      } else {
+        grad.addColorStop(0, "#e8a52a");
+        grad.addColorStop(0.48, "#d88919");
+        grad.addColorStop(1, "#efb842");
+      }
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
@@ -114,8 +123,13 @@ function ScratchReveal({
         const cy = (((i * 47) % 89) / 89) * h;
         const r = 18 + ((i * 13) % 32);
         const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-        rg.addColorStop(0, i % 2 ? "rgba(255, 205, 92, 0.14)" : "rgba(151, 77, 10, 0.1)");
-        rg.addColorStop(1, "rgba(255, 190, 55, 0)");
+        if (variant === "wedding") {
+          rg.addColorStop(0, i % 2 ? "rgba(243, 195, 90, 0.18)" : "rgba(232, 198, 194, 0.12)");
+          rg.addColorStop(1, "rgba(180, 147, 76, 0)");
+        } else {
+          rg.addColorStop(0, i % 2 ? "rgba(255, 205, 92, 0.14)" : "rgba(151, 77, 10, 0.1)");
+          rg.addColorStop(1, "rgba(255, 190, 55, 0)");
+        }
         ctx.fillStyle = rg;
         ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
       }
@@ -125,13 +139,17 @@ function ScratchReveal({
         const gx = (((i * 67) % 997) / 997) * w;
         const gy = (((i * 149) % 991) / 991) * h;
         const gr = 0.45 + (i % 4) * 0.28;
-        ctx.fillStyle = i % 3 ? "rgba(112, 54, 8, 0.13)" : "rgba(255, 232, 151, 0.18)";
+        if (variant === "wedding") {
+          ctx.fillStyle = i % 3 ? "rgba(243, 195, 90, 0.22)" : "rgba(255, 250, 240, 0.16)";
+        } else {
+          ctx.fillStyle = i % 3 ? "rgba(112, 54, 8, 0.13)" : "rgba(255, 232, 151, 0.18)";
+        }
         ctx.beginPath();
         ctx.arc(gx, gy, gr, 0, Math.PI * 2);
         ctx.fill();
       }
     },
-    [],
+    [variant],
   );
 
   const resizeCanvases = useCallback(() => {
@@ -236,6 +254,7 @@ function ScratchReveal({
       const speed = Math.min(len, 36);
       const nx = speed ? delta.x / len : 0;
       const ny = speed ? delta.y / len : 0;
+      const palette = variant === "wedding" ? WEDDING_COLORS : HALDI_COLORS;
       for (let i = 0; i < count; i += 1) {
         const jx = (Math.random() - 0.5) * 1.5;
         const jy = (Math.random() - 0.5) * 1.15;
@@ -246,7 +265,7 @@ function ScratchReveal({
           vy: ny * (0.45 + speed * 0.018) + jy - 0.25,
           size: 0.7 + Math.random() * 1.65,
           opacity: 0.28 + Math.random() * 0.28,
-          color: HALDI_COLORS[i % HALDI_COLORS.length],
+          color: palette[i % palette.length],
           age: 0,
           life: 320 + Math.random() * 360,
         });
@@ -258,7 +277,7 @@ function ScratchReveal({
         rafRef.current = requestAnimationFrame(stepParticles);
       }
     },
-    [brushRadius, reduceMotion, stepParticles],
+    [brushRadius, reduceMotion, stepParticles, variant],
   );
 
   const finishReveal = useCallback(() => {
@@ -451,7 +470,9 @@ function ScratchReveal({
         <canvas ref={particleCanvasRef} className="scratch-reveal__particles" aria-hidden="true" />
         {!hidden && (
           <motion.p
-            className="scratch-reveal__instruction"
+            className={`scratch-reveal__instruction ${
+              variant === "wedding" ? "scratch-reveal__instruction--wedding" : ""
+            }`}
             animate={{ opacity: started || fadingOut ? 0 : 1 }}
             aria-hidden="true"
           >
@@ -667,6 +688,9 @@ function MehendiTrace({
   onComplete,
   onProgress,
   threshold = 0.4,
+  variant = "mehendi",
+  instruction = "Trace the heart",
+  fallbackLabel = "Skip & Reveal",
   label,
 }: {
   children: ReactNode;
@@ -674,6 +698,9 @@ function MehendiTrace({
   onComplete?: () => void;
   onProgress?: (ratio: number) => void;
   threshold?: number;
+  variant?: "mehendi" | "vidai";
+  instruction?: string;
+  fallbackLabel?: string;
   label?: string;
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -707,11 +734,12 @@ function MehendiTrace({
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.fillStyle = "#fffaf0";
+    ctx.fillStyle = variant === "vidai" ? "#fdf6f5" : "#fffaf0";
     ctx.fillRect(0, 0, rect.width, rect.height);
     pointsRef.current = generateHeartPoints(rect.width, rect.height);
     const pts = pointsRef.current;
-    ctx.strokeStyle = "rgba(112, 67, 43, 0.72)";
+    ctx.strokeStyle =
+      variant === "vidai" ? "rgba(116, 31, 50, 0.58)" : "rgba(112, 67, 43, 0.72)";
     ctx.lineWidth = 1.7;
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
@@ -722,7 +750,7 @@ function MehendiTrace({
     ctx.stroke();
 
     ctx.setLineDash([]);
-    ctx.strokeStyle = "#9b7436";
+    ctx.strokeStyle = variant === "vidai" ? "#9d3d55" : "#9b7436";
     ctx.lineWidth = 4;
     tracedSetRef.current.forEach((idx) => {
       const a = pts[idx];
@@ -732,7 +760,7 @@ function MehendiTrace({
       ctx.lineTo(b.x, b.y);
       ctx.stroke();
     });
-  }, []);
+  }, [variant]);
 
   useEffect(() => {
     drawHeart();
@@ -865,7 +893,7 @@ function MehendiTrace({
           animate={{ opacity: started || fadingOut ? 0 : 1 }}
           aria-hidden="true"
         >
-          Trace the heart
+          {instruction}
         </motion.p>
       )}
       {!hidden && (
@@ -881,7 +909,7 @@ function MehendiTrace({
             }
           }}
         >
-          Reveal Mehendi details
+          {fallbackLabel}
         </button>
       )}
     </div>
@@ -1223,6 +1251,261 @@ export function SangeetInteraction({
                       </motion.div>
                     )}
                   </AnimatePresence>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
+    </>
+  );
+}
+
+/* ==========================================================================
+   4. Wedding Interaction (Royal Gold & Rose Petal Rub Reveal)
+   ========================================================================== */
+export function WeddingInteraction({
+  event,
+  completed,
+  onComplete,
+}: {
+  event: WeddingEvent;
+  completed: boolean;
+  onComplete: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [isNarrow, setIsNarrow] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(max-width: 430px)").matches,
+  );
+  const progressRef = useRef(0);
+  const reduceMotion = useReducedMotion();
+
+  const handleClose = useCallback(() => {
+    if (!completed && progressRef.current >= 0.25) onComplete();
+    setOpen(false);
+  }, [completed, onComplete]);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 430px)");
+    const handler = (e: MediaQueryListEvent) => setIsNarrow(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [handleClose, open]);
+
+  const triggerStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  return (
+    <>
+      {!completed && (
+        <button
+          className="haldi-scratch__trigger wedding-scratch__trigger"
+          type="button"
+          onClick={() => setOpen(true)}
+          onPointerDown={(e) => {
+            triggerStartRef.current = { x: e.clientX, y: e.clientY };
+          }}
+          onPointerMove={(e) => {
+            if (!triggerStartRef.current) return;
+            const dx = Math.abs(e.clientX - triggerStartRef.current.x);
+            const dy = Math.abs(e.clientY - triggerStartRef.current.y);
+            if (dx > 12 && dx >= dy) {
+              triggerStartRef.current = null;
+              setOpen(true);
+            }
+          }}
+          onPointerUp={() => {
+            triggerStartRef.current = null;
+          }}
+          aria-label="Rub to reveal Wedding ceremony details"
+        >
+          <span className="wedding-scratch__icon" aria-hidden="true">
+            💍
+          </span>
+          <span>Unveil the Wedding</span>
+          <small>Tap or rub to reveal details</small>
+        </button>
+      )}
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                className="haldi-scratch__overlay"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="wedding-scratch-title"
+                initial={reduceMotion ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.25 }}
+              >
+                <div className="haldi-scratch__dialog">
+                  <button
+                    className="haldi-scratch__close"
+                    type="button"
+                    onClick={handleClose}
+                    autoFocus
+                  >
+                    <ArrowLeftIcon />
+                    Back to festivities
+                  </button>
+                  <header className="haldi-scratch__header">
+                    <h2 id="wedding-scratch-title">{event.name}</h2>
+                    <p>Rub away the royal velvet veil to reveal the Vivah Sanskar.</p>
+                  </header>
+                  <div className="haldi-scratch__surface">
+                    <ScratchReveal
+                      variant="wedding"
+                      completed={completed}
+                      onComplete={onComplete}
+                      onProgress={(r) => {
+                        progressRef.current = r;
+                      }}
+                      threshold={isNarrow ? 0.28 : 0.32}
+                      brushRadius={isNarrow ? 46 : 54}
+                      instruction="Rub to unveil"
+                      fallbackLabel="Skip & Reveal"
+                      label="Rub the royal veil to reveal the Wedding celebration details"
+                    >
+                      <HaldiInformation event={event} />
+                    </ScratchReveal>
+                  </div>
+                  {completed && (
+                    <p className="haldi-scratch__complete" aria-live="polite">
+                      The celebration details are revealed.
+                    </p>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
+    </>
+  );
+}
+
+/* ==========================================================================
+   5. Vidaai Interaction (Farewell Blessing Heart Trace)
+   ========================================================================== */
+export function VidaiInteraction({
+  event,
+  completed,
+  onComplete,
+}: {
+  event: WeddingEvent;
+  completed: boolean;
+  onComplete: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const progressRef = useRef(0);
+  const reduceMotion = useReducedMotion();
+
+  const handleClose = useCallback(() => {
+    if (!completed && progressRef.current >= 0.25) onComplete();
+    setOpen(false);
+  }, [completed, onComplete]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") handleClose();
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [handleClose, open]);
+
+  const triggerStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  return (
+    <>
+      {!completed && (
+        <button
+          className="mehendi-scratch__trigger vidai-scratch__trigger"
+          type="button"
+          onClick={() => setOpen(true)}
+          onPointerDown={(e) => {
+            triggerStartRef.current = { x: e.clientX, y: e.clientY };
+          }}
+          onPointerMove={(e) => {
+            if (!triggerStartRef.current) return;
+            const dx = Math.abs(e.clientX - triggerStartRef.current.x);
+            const dy = Math.abs(e.clientY - triggerStartRef.current.y);
+            if (dx > 12 && dx >= dy) {
+              triggerStartRef.current = null;
+              setOpen(true);
+            }
+          }}
+          onPointerUp={() => {
+            triggerStartRef.current = null;
+          }}
+          aria-label="Trace heart to reveal Vidaai event details"
+        >
+          <span className="mehendi-scratch__mini-heart vidai-scratch__icon" aria-hidden="true">
+            ❀
+          </span>
+          <strong>Trace for Vidaai</strong>
+          <small>Tap or trace to reveal details</small>
+        </button>
+      )}
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                className="mehendi-scratch__overlay"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="vidai-scratch-title"
+                initial={reduceMotion ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: reduceMotion ? 0 : 0.25 }}
+              >
+                <div className="mehendi-scratch__dialog">
+                  <button
+                    className="mehendi-scratch__close"
+                    type="button"
+                    onClick={handleClose}
+                    autoFocus
+                  >
+                    <ArrowLeftIcon />
+                    Back to festivities
+                  </button>
+                  <header className="mehendi-scratch__header">
+                    <h2 id="vidai-scratch-title">{event.name}</h2>
+                    <p>Trace the heart of blessings to reveal the Vidaai farewell.</p>
+                  </header>
+                  <div className="mehendi-scratch__surface">
+                    <MehendiTrace
+                      variant="vidai"
+                      completed={completed}
+                      onComplete={onComplete}
+                      onProgress={(r) => {
+                        progressRef.current = r;
+                      }}
+                      threshold={0.6}
+                      instruction="Trace with blessings"
+                      fallbackLabel="Skip & Reveal"
+                      label="Trace the heart to reveal Vidaai details"
+                    >
+                      <MehendiInformation event={event} />
+                    </MehendiTrace>
+                  </div>
+                  {completed && (
+                    <p className="mehendi-scratch__complete" aria-live="polite">
+                      The celebration details are revealed.
+                    </p>
+                  )}
                 </div>
               </motion.div>
             )}

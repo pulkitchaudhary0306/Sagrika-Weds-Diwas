@@ -29,11 +29,12 @@ export default function Home() {
           </p>
           <h2 id="introduction-title">A celebration of love</h2>
           <p>
+            With the divine blessings of the Almighty and our family deities,{" "}
             <strong>{wedding.family.hosts}</strong> (
             <span lang="hi">{wedding.family.hostsHindi}</span>) of{" "}
-            <span>{wedding.family.address}</span> cordially invite you to share in the joy of the
-            wedding festivities of <strong>{bride}</strong> (<span lang="hi">{wedding.brideHindi}</span>)
-            and <strong>{groom}</strong> (<span lang="hi">{wedding.groomHindi}</span>), beginning on{" "}
+            <span>{wedding.family.address}</span> cordially invite you and your family to share in the joy of the
+            wedding festivities of their beloved children <strong>{groom}</strong> (<span lang="hi">{wedding.groomHindi}</span>)
+            and <strong>{bride}</strong> (<span lang="hi">{wedding.brideHindi}</span>), beginning on{" "}
             {firstDate}.
           </p>
           <div className="ornament" aria-hidden="true">

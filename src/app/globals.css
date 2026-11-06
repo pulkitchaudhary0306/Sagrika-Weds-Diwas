@@ -3529,3 +3529,47 @@ html.wedding-gate-opening .opening-gate__edge-shimmer {
   }
 }
 
+/* 8. Wedding & Vidaai Interactive Reveal Triggers */
+.wedding-scratch__trigger {
+  color: var(--ivory);
+  background:
+    radial-gradient(circle at 50% 44%, rgba(243, 195, 90, 0.25), transparent 40%),
+    linear-gradient(145deg, #741f32, #8f2a42 54%, #5e1828);
+}
+
+.wedding-scratch__trigger:after {
+  border-color: rgba(180, 147, 76, 0.65);
+}
+
+.wedding-scratch__icon {
+  font-size: 1.55rem !important;
+  line-height: 1;
+  margin-bottom: 0.1rem;
+}
+
+.wedding-scratch__trigger small {
+  color: var(--warm-cream);
+}
+
+.scratch-reveal__instruction--wedding {
+  color: var(--ivory);
+}
+
+.vidai-scratch__trigger {
+  color: var(--maroon);
+  background-color: #fdf6f5;
+  background-image:
+    radial-gradient(circle at 20% 22%, rgba(184, 117, 123, 0.14) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 76%, rgba(180, 147, 76, 0.18) 0 3px, transparent 4px),
+    repeating-radial-gradient(circle, transparent 0 22px, rgba(184, 117, 123, 0.08) 23px 24px);
+}
+
+.vidai-scratch__trigger:after {
+  border-color: rgba(184, 117, 123, 0.45);
+}
+
+.vidai-scratch__icon {
+  color: #b8757b;
+}
+
+
