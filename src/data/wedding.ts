@@ -123,7 +123,7 @@ export const wedding: WeddingData = {
   family: {
     senderHeadingHindi: "दर्शनाभिलाषी / प्रेषक",
     senderHeading: "With Warm Regards",
-    hosts: "Durga Devi & Subedar Dil Bahadur Thapa Chhetri (Retd.)",
+    hosts: "Mrs.Durga Devi & Subedar Dil Bahadur Thapa Chhetri (Retd.)",
     hostsHindi: "श्रीमती दुर्गा देवी एवं सूबेदार दिल बहादुर थापा क्षत्री (से.नि.)",
     address: "Prateet Nagar, Raiwala, District Dehradun, Uttarakhand, India",
     addressHindi: "प्रतीत नगर, रायवाला, जनपद देहरादून",
@@ -131,20 +131,20 @@ export const wedding: WeddingData = {
   },
 
   weddingVenue: {
-    headingHindi: "विवाह स्थल",
-    name: "Football Ground",
-    nameHindi: "फुटबॉल ग्राउंड",
-    landmark: "Near Burans Aadhar Apartment",
-    landmarkHindi: "निकट बुरांस आधार अपार्टमेंट",
-    road: "Thakurpur Road, Dehradun, Uttarakhand, India",
-    roadHindi: "ठाकुरपुर रोड, देहरादून",
+    headingHindi: "प्रीतिभोज स्थल",
+    name: "Ganesh Farm",
+    nameHindi: "गणेश फार्म",
+    landmark: "B.D.G. Camp Road",
+    landmarkHindi: "बी.डी.जी. कैंप रोड",
+    road: "Raiwala, Prateet Nagar, District Dehradun, Uttarakhand, India",
+    roadHindi: "रायवाला, प्रतीत नगर, देहरादून",
     location:
-      "Near Burans Aadhar Apartment, Thakurpur Road, Dehradun, Uttarakhand, India",
-    locationHindi: "निकट बुरांस आधार अपार्टमेंट, ठाकुरपुर रोड, देहरादून",
+      "Ganesh Farm, B.D.G. Camp Road, Raiwala, District Dehradun, Uttarakhand, India",
+    locationHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
     mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Football+Ground+Near+Burans+Aadhar+Apartment+Thakurpur+Road+Dehradun+Uttarakhand",
+      "https://www.google.com/maps/search/?api=1&query=Ganesh+Farm+BDG+Camp+Road+Raiwala+Dehradun+Uttarakhand",
     mapEmbedUrl:
-      "https://www.google.com/maps?q=Burans+Aadhar+Apartment+Thakurpur+Road+Dehradun+Uttarakhand&output=embed",
+      "https://www.google.com/maps?q=Ganesh+Farm+BDG+Camp+Road+Raiwala+Dehradun+Uttarakhand&output=embed",
   },
 
   blessing: {

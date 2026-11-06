@@ -1448,12 +1448,12 @@ export function VidaiInteraction({
           onPointerUp={() => {
             triggerStartRef.current = null;
           }}
-          aria-label="Trace heart to reveal Vidaai event details"
+          aria-label="Trace heart to reveal Reception event details"
         >
           <span className="mehendi-scratch__mini-heart vidai-scratch__icon" aria-hidden="true">
             ❀
           </span>
-          <strong>Trace for Vidaai</strong>
+          <strong>Trace for Reception</strong>
           <small>Tap or trace to reveal details</small>
         </button>
       )}
@@ -1483,7 +1483,7 @@ export function VidaiInteraction({
                   </button>
                   <header className="mehendi-scratch__header">
                     <h2 id="vidai-scratch-title">{event.name}</h2>
-                    <p>Trace the heart of blessings to reveal the Vidaai farewell.</p>
+                    <p>Trace the heart of blessings to reveal the Reception celebration.</p>
                   </header>
                   <div className="mehendi-scratch__surface">
                     <MehendiTrace
@@ -1496,7 +1496,7 @@ export function VidaiInteraction({
                       threshold={0.6}
                       instruction="Trace with blessings"
                       fallbackLabel="Skip & Reveal"
-                      label="Trace the heart to reveal Vidaai details"
+                      label="Trace the heart to reveal Reception details"
                     >
                       <MehendiInformation event={event} />
                     </MehendiTrace>

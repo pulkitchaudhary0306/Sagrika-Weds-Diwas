@@ -85,7 +85,7 @@ export default function VenueAndRsvpSection({ wedding }: { wedding: WeddingData 
             <span className="venue-section__hi" lang="hi">
               {weddingVenue.headingHindi}
             </span>
-            <span>Wedding Venue &amp; Directions</span>
+            <span>Reception Venue &amp; Directions</span>
           </h2>
 
           <div className="venue-card">
