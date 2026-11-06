@@ -123,11 +123,11 @@ export const wedding: WeddingData = {
   family: {
     senderHeadingHindi: "दर्शनाभिलाषी / प्रेषक",
     senderHeading: "With Warm Regards",
-    hosts: "Durga Devi & Subedar Dil Bahadur Thapa Kshetri (Retd.)",
+    hosts: "Durga Devi & Subedar Dil Bahadur Thapa Chhetri (Retd.)",
     hostsHindi: "श्रीमती दुर्गा देवी एवं सूबेदार दिल बहादुर थापा क्षत्री (से.नि.)",
     address: "Prateet Nagar, Raiwala, District Dehradun, Uttarakhand, India",
     addressHindi: "प्रतीत नगर, रायवाला, जनपद देहरादून",
-    contacts: ["9997954507", "9119770909"],
+    contacts: ["9997118366", "7889743382"],
   },
 
   weddingVenue: {
@@ -219,7 +219,7 @@ export const wedding: WeddingData = {
           timeHindi: "शुभलग्नानुसार",
         },
         {
-          title: "Bride & Groom's Griha Pravesh",
+          title: "Groom & Bride's Griha Pravesh",
           titleHindi: "वर-वधू गृह प्रवेश",
           time: "6:00 PM",
           timeHindi: "6:00 बजे सायं",
@@ -368,7 +368,7 @@ export const wedding: WeddingData = {
         {
           time: "6:00 PM",
           timeHindi: "6:00 बजे सायं",
-          title: "Bride & Groom's Griha Pravesh",
+          title: "Groom & Bride's Griha Pravesh",
           titleHindi: "वर-वधू गृह प्रवेश",
         },
       ],

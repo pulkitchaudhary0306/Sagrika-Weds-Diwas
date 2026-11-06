@@ -59,16 +59,16 @@ export default function Home() {
         <VenueAndRsvpSection wedding={wedding} />
 
         <PickYourSide
-          bride={bride}
           groom={groom}
-          brideHindi={wedding.brideHindi}
+          bride={bride}
           groomHindi={wedding.groomHindi}
+          brideHindi={wedding.brideHindi}
         />
         <CountdownSection
           date={wedding.dateISO}
           displayDate={`${wedding.weddingDate} · ${wedding.weddingDay} | ${wedding.weddingDayHindi}`}
         />
-        <BlessingsSection bride={bride} groom={groom} />
+        <BlessingsSection groom={groom} bride={bride} />
         <SiteFooter wedding={wedding} />
         <MusicControl />
       </main>

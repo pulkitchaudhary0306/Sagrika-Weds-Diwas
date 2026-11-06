@@ -174,15 +174,15 @@ export default function HeroSection({ wedding }: { wedding: WeddingData }) {
       </motion.p>
 
       <motion.p className="hero-section__hindi-names" lang="hi" {...fadeUp(0.1)}>
-        <span>{wedding.brideHindi}</span>
-        <em className="hero-section__parinay">{wedding.parinayLabel}</em>
         <span>{wedding.groomHindi}</span>
+        <em className="hero-section__parinay">{wedding.parinayLabel}</em>
+        <span>{wedding.brideHindi}</span>
       </motion.p>
 
       <motion.h1 id="hero-couple-names" className="hero-section__names" {...fadeUp(0.14)}>
-        <span>{wedding.bride}</span>
-        <i>&amp;</i>
         <span>{wedding.groom}</span>
+        <i>&amp;</i>
+        <span>{wedding.bride}</span>
       </motion.h1>
 
       <motion.div
@@ -199,7 +199,7 @@ export default function HeroSection({ wedding }: { wedding: WeddingData }) {
         <img
           className="hero-section__portrait"
           src="/media/final-assets/couple-master.webp"
-          alt={`${wedding.bride} and ${wedding.groom}`}
+          alt={`${wedding.groom} and ${wedding.bride}`}
           width={912}
           height={1168}
           loading="eager"

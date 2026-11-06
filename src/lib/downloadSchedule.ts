@@ -119,14 +119,14 @@ function buildIcs(wedding: WeddingData): string {
     .toISOString()
     .replace(/[-:]/g, "")
     .replace(/\.\d{3}Z$/, "Z");
-  const slug = `${slugify(wedding.bride)}-${slugify(wedding.groom)}`;
+  const slug = `${slugify(wedding.groom)}-${slugify(wedding.bride)}`;
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
     "PRODID:-//Wedding Invitation//Schedule//EN",
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
-    `X-WR-CALNAME:${escapeIcs(`${wedding.bride} & ${wedding.groom} Wedding`)}`,
+    `X-WR-CALNAME:${escapeIcs(`${wedding.groom} & ${wedding.bride} Wedding`)}`,
     "X-WR-TIMEZONE:Asia/Kolkata",
     "BEGIN:VTIMEZONE",
     "TZID:Asia/Kolkata",
@@ -150,7 +150,7 @@ function buildIcs(wedding: WeddingData): string {
         : addMinutes(rawEnd, 1440)
       : addMinutes(start, 120);
     const loc = fullLocation(ev, wedding);
-    const desc = [ev.description, `${wedding.bride} & ${wedding.groom}'s wedding celebrations.`]
+    const desc = [ev.description, `${wedding.groom} & ${wedding.bride}'s wedding celebrations.`]
       .filter(Boolean)
       .join("\n\n");
 
@@ -242,14 +242,14 @@ function buildImagePdfBytes(jpegBytes: Uint8Array, width: number, height: number
 }
 
 export async function downloadWeddingScheduleImage(wedding: WeddingData) {
-  const filename = `${slugify(wedding.bride)}-${slugify(wedding.groom)}-wedding-schedule.jpg`;
+  const filename = `${slugify(wedding.groom)}-${slugify(wedding.bride)}-wedding-schedule.jpg`;
   const res = await fetch(SCHEDULE_CARD_IMAGE_URL);
   const blob = await res.blob();
   triggerDownload(blob, filename);
 }
 
 export async function downloadWeddingSchedulePdf(wedding: WeddingData) {
-  const filename = `${slugify(wedding.bride)}-${slugify(wedding.groom)}-wedding-schedule.pdf`;
+  const filename = `${slugify(wedding.groom)}-${slugify(wedding.bride)}-wedding-schedule.pdf`;
   const res = await fetch(SCHEDULE_CARD_IMAGE_URL);
   const arrayBuffer = await res.arrayBuffer();
   const pdfBytes = buildImagePdfBytes(new Uint8Array(arrayBuffer), CARD_WIDTH, CARD_HEIGHT);
@@ -260,6 +260,6 @@ export async function downloadWeddingSchedulePdf(wedding: WeddingData) {
 }
 
 export function downloadWeddingCalendar(wedding: WeddingData) {
-  const filename = `${slugify(wedding.bride)}-${slugify(wedding.groom)}-wedding-events.ics`;
+  const filename = `${slugify(wedding.groom)}-${slugify(wedding.bride)}-wedding-events.ics`;
   triggerDownload(new Blob([buildIcs(wedding)], { type: "text/calendar;charset=utf-8" }), filename);
 }

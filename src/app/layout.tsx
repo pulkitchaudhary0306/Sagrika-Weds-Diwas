@@ -34,8 +34,8 @@ const siteUrl =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "http://localhost:3000");
 
-const title = `${wedding.bride} & ${wedding.groom} (${wedding.brideHindi} परिणय ${wedding.groomHindi}) | Wedding Invitation`;
-const description = `॥ शुभ विवाह ॥ With the blessings of our families (${wedding.family.hosts}), we cordially invite you to celebrate the wedding of ${wedding.bride} & ${wedding.groom} on ${wedding.weddingDay}, ${wedding.weddingDate} in Dehradun.`;
+const title = `${wedding.groom} & ${wedding.bride} (${wedding.groomHindi} परिणय ${wedding.brideHindi}) | Wedding Invitation`;
+const description = `॥ शुभ विवाह ॥ With the blessings of our families (${wedding.family.hosts}), we cordially invite you to celebrate the wedding of ${wedding.groom} & ${wedding.bride} on ${wedding.weddingDay}, ${wedding.weddingDate} in Raiwala, Dehradun.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

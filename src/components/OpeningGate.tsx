@@ -22,7 +22,7 @@ export default function OpeningGate({ wedding }: { wedding: WeddingData }) {
 
   const monogram =
     wedding.initials ||
-    `${wedding.bride.trim().charAt(0)} · ${wedding.groom.trim().charAt(0)}`;
+    `${wedding.groom.trim().charAt(0)} · ${wedding.bride.trim().charAt(0)}`;
 
   useEffect(() => {
     const root = document.documentElement;
@@ -168,8 +168,8 @@ export default function OpeningGate({ wedding }: { wedding: WeddingData }) {
               animate={{ opacity: stage === "idle" ? 1 : 0 }}
             >
               <p className="opening-gate__couple-hi" lang="hi">
-                {wedding.brideHindi} <span className="opening-gate__parinay">{wedding.parinayLabel}</span>{" "}
-                {wedding.groomHindi}
+                {wedding.groomHindi} <span className="opening-gate__parinay">{wedding.parinayLabel}</span>{" "}
+                {wedding.brideHindi}
               </p>
               <p className="opening-gate__tap">
                 <KalashIllustration className="opening-gate__kalash-mini" />

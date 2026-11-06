@@ -1596,11 +1596,11 @@ html.wedding-gate-opening .opening-gate__edge-shimmer {
 .side-choice {
   min-width:0;
   position:relative}
-.side-choice--bride {
+.side-choice--groom {
   order:1}
 .side-options__or {
   order:2}
-.side-choice--groom {
+.side-choice--bride {
   order:3}
 .side-card {
   width:100%;
@@ -1721,9 +1721,9 @@ html.wedding-gate-opening .opening-gate__edge-shimmer {
   .side-options {
   grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);
   gap:clamp(.8rem,3vw,1.25rem)}
-.side-choice--bride {
-  grid-column:1}
 .side-choice--groom {
+  grid-column:1}
+.side-choice--bride {
   grid-column:3}
 .side-options__or {
   grid-area:1/2;
@@ -3455,7 +3455,7 @@ html.wedding-gate-opening .opening-gate__edge-shimmer {
     align-items: center;
   }
 
-  .side-choice--bride {
+  .side-choice--groom {
     grid-column: 1;
   }
 
@@ -3465,7 +3465,7 @@ html.wedding-gate-opening .opening-gate__edge-shimmer {
     font-size: 0.6rem;
   }
 
-  .side-choice--groom {
+  .side-choice--bride {
     grid-column: 3;
   }
 

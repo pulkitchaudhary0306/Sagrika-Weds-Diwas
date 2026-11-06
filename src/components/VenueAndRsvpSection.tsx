@@ -166,7 +166,7 @@ export default function VenueAndRsvpSection({ wedding }: { wedding: WeddingData 
                     <a
                       href={buildWhatsAppUrl(
                         phone,
-                        `नमस्ते 🙏 We received the wedding invitation for ${wedding.bride} & ${wedding.groom} on ${wedding.weddingDate}!`,
+                        `नमस्ते 🙏 We received the wedding invitation for ${wedding.groom} & ${wedding.bride} on ${wedding.weddingDate}!`,
                       )}
                       target="_blank"
                       rel="noopener noreferrer"

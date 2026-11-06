@@ -176,15 +176,15 @@ export default function SiteFooter({ wedding }: { wedding: WeddingData }) {
         <p className="site-footer__closing">With love, we begin forever.</p>
 
         <p className="site-footer__names-hi" lang="hi">
-          <span>{wedding.brideHindi}</span>
-          <i>{wedding.parinayLabel}</i>
           <span>{wedding.groomHindi}</span>
+          <i>{wedding.parinayLabel}</i>
+          <span>{wedding.brideHindi}</span>
         </p>
 
         <p className="site-footer__names">
-          <span>{wedding.bride}</span>
-          <i>&amp;</i>
           <span>{wedding.groom}</span>
+          <i>&amp;</i>
+          <span>{wedding.bride}</span>
         </p>
 
         <p className="site-footer__hosts">
@@ -292,7 +292,7 @@ export default function SiteFooter({ wedding }: { wedding: WeddingData }) {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={SCHEDULE_CARD_IMAGE_URL}
-                      alt={`${wedding.bride} & ${wedding.groom} Wedding Schedule Card`}
+                      alt={`${wedding.groom} & ${wedding.bride} Wedding Schedule Card`}
                       width={682}
                       height={1024}
                       loading="eager"
