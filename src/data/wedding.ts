@@ -143,7 +143,7 @@ export const wedding: WeddingData = {
     locationHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
     mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
     mapEmbedUrl:
-      "https://www.google.com/maps?q=30.0300856,78.2188391&output=embed",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d136442.32331173884!2d78.06658143355197!3d30.03008560000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39093fe9c065d9b9%3A0xc883db5aa74f19bf!2sShree%20Ganesh%20farm%20wedding!5e1!3m2!1sen!2sus!4v1794464889623!5m2!1sen!2sus",
   },
 
   blessing: {
