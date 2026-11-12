@@ -141,10 +141,9 @@ export const wedding: WeddingData = {
     location:
       "Ganesh Farm, B.D.G. Camp Road, Raiwala, District Dehradun, Uttarakhand, India",
     locationHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-    mapUrl:
-      "https://www.google.com/maps/search/?api=1&query=Ganesh+Farm+BDG+Camp+Road+Raiwala+Dehradun+Uttarakhand",
+    mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
     mapEmbedUrl:
-      "https://www.google.com/maps?q=Ganesh+Farm+BDG+Camp+Road+Raiwala+Dehradun+Uttarakhand&output=embed",
+      "https://www.google.com/maps?q=30.0300856,78.2188391&output=embed",
   },
 
   blessing: {
@@ -259,8 +258,7 @@ export const wedding: WeddingData = {
       venueHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला",
       address: "B.D.G. Camp Road, Raiwala, Prateet Nagar, Dehradun, Uttarakhand",
       addressHindi: "बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-      mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=Ganesh+Farm+BDG+Camp+Road+Raiwala+Dehradun+Uttarakhand",
+      mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
       subItems: [
         {
           time: "2:00 PM",
@@ -294,8 +292,7 @@ export const wedding: WeddingData = {
       venueHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला",
       address: "B.D.G. Camp Road, Raiwala, Prateet Nagar, Dehradun, Uttarakhand",
       addressHindi: "बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-      mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=Ganesh+Farm+BDG+Camp+Road+Raiwala+Dehradun+Uttarakhand",
+      mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
       subItems: [
         {
           time: "9:00 AM",
@@ -329,8 +326,7 @@ export const wedding: WeddingData = {
       venueHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला",
       address: "B.D.G. Camp Road, Raiwala, Prateet Nagar, Dehradun, Uttarakhand",
       addressHindi: "बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-      mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=Ganesh+Farm+BDG+Camp+Road+Raiwala+Dehradun+Uttarakhand",
+      mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
       description:
         "An enchanting evening of intricate henna artistry, music, celebration and festive joy under the lights.",
     },
@@ -392,8 +388,7 @@ export const wedding: WeddingData = {
       venueHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला",
       address: "B.D.G. Camp Road, Raiwala, Prateet Nagar, Dehradun, Uttarakhand",
       addressHindi: "बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-      mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=Ganesh+Farm+BDG+Camp+Road+Raiwala+Dehradun+Uttarakhand",
+      mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
       description:
         "A grand evening of celebratory dining, warmth and heartfelt blessings to honour the union of Diwas and Sagrika with family and friends.",
     },
