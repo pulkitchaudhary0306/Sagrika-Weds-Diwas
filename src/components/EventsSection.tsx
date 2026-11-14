@@ -155,10 +155,15 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
 
       <div className="event-card__content">
         <div className="event-card__details-content">
-          <p className="event-card__date">
-            {event.dayLabel} (<span lang="hi">{event.dayLabelHindi}</span>) · {event.date} ·{" "}
-            {event.time}
-          </p>
+          <div className="event-card__date-badge">
+            <span className="event-card__day-date">
+              {event.dayLabel} (<span lang="hi">{event.dayLabelHindi}</span>) · {event.date}
+            </span>
+            <span className="event-card__time-separator" aria-hidden="true">
+              ·
+            </span>
+            <span className="event-card__time-tag">{event.time}</span>
+          </div>
 
           <h3 id={`event-${event.id}-title`}>{event.name}</h3>
           <p className="event-card__hindi-title" lang="hi">

@@ -203,12 +203,18 @@ export default function VenueAndRsvpSection({ wedding }: { wedding: WeddingData 
             {shiningStars && shiningStars.length > 0 && (
               <div className="host-card__stars-group">
                 <p className="host-card__stars-label">
-                  <span lang="hi">बाल मनुहार</span> · Special Invitation From Our Shining Stars
+                  <span className="host-card__stars-icon" aria-hidden="true">✦</span>
+                  <span lang="hi">बाल मनुहार</span>
+                  <span className="host-card__stars-sep">·</span>
+                  <span>Special Invitation From Our Shining Stars</span>
+                  <span className="host-card__stars-icon" aria-hidden="true">✦</span>
                 </p>
                 <div className="host-card__stars-names">
                   {shiningStars.map((name, idx) => (
                     <span key={name} className="host-card__name-item">
-                      <span className="host-card__name-text">{name}</span>
+                      <span className="host-card__name-text host-card__name-text--star">
+                        {name}
+                      </span>
                       {idx < shiningStars.length - 1 && (
                         <span className="host-card__separator" aria-hidden="true">
                           ·
