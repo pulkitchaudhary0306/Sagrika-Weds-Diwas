@@ -199,7 +199,7 @@ export default function HeroSection({ wedding }: { wedding: WeddingData }) {
         <img
           className="hero-section__portrait"
           src="/media/final-assets/couple-master.webp"
-          alt={`${wedding.groom} and ${wedding.bride}`}
+          alt={`${wedding.bride} and ${wedding.groom}`}
           width={912}
           height={1168}
           loading="eager"

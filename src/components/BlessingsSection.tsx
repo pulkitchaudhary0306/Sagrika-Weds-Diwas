@@ -30,11 +30,11 @@ const GLYPHS: Record<"sparkle" | "heart" | "petal", string> = {
 };
 
 export default function BlessingsSection({
-  groom,
   bride,
+  groom,
 }: {
-  groom: string;
   bride: string;
+  groom: string;
 }) {
   const [sent, setSent] = useState(false);
   const [bursting, setBursting] = useState(false);
@@ -168,7 +168,7 @@ export default function BlessingsSection({
                 ease: "easeOut",
               }}
             >
-              {groom} &amp; {bride} carry your warm wishes with them ✨
+              {bride} &amp; {groom} carry your warm wishes with them ✨
             </motion.span>
           )}
         </AnimatePresence>

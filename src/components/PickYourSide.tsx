@@ -20,15 +20,15 @@ const SPARKLES = [
 type Side = "bride" | "groom";
 
 export default function PickYourSide({
-  groom,
   bride,
-  groomHindi,
+  groom,
   brideHindi,
+  groomHindi,
 }: {
-  groom: string;
   bride: string;
-  groomHindi?: string;
+  groom: string;
   brideHindi?: string;
+  groomHindi?: string;
 }) {
   const [selected, setSelected] = useState<Side | null>(null);
   const [burstKey, setBurstKey] = useState(0);
@@ -52,20 +52,20 @@ export default function PickYourSide({
     height: number;
   }[] = [
     {
-      id: "groom",
-      role: "Groom",
-      name: groomHindi || groom,
-      portrait: "/media/final-assets/groom-team.webp",
-      width: 1024,
-      height: 1536,
-    },
-    {
       id: "bride",
       role: "Bride",
       name: brideHindi || bride,
       portrait: "/media/final-assets/bride-team.webp",
       width: 1122,
       height: 1402,
+    },
+    {
+      id: "groom",
+      role: "Groom",
+      name: groomHindi || groom,
+      portrait: "/media/final-assets/groom-team.webp",
+      width: 1024,
+      height: 1536,
     },
   ];
 

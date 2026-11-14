@@ -202,12 +202,6 @@ export const wedding: WeddingData = {
           timeHindi: "सायं 7:00 बजे",
         },
         {
-          title: "Marriage Ceremony (Vivah Sanskar)",
-          titleHindi: "विवाह संस्कार (पाणिग्रहण संस्कार)",
-          time: "Auspicious Muhurat",
-          timeHindi: "शुभलग्नानुसार",
-        },
-        {
           title: "Vidai",
           titleHindi: "विदाई (तारों की छांव में)",
           time: "Taaron Ke Chaon Mein",
@@ -273,51 +267,6 @@ export const wedding: WeddingData = {
       mapUrl: "https://www.google.com/maps/search/?api=1&query=RR+FARM+Badli+Road+Bahadurgarh+124507",
       description:
         "Warm and joyous ceremonial welcome to the Groom, his family, and the Barat with garland exchanges, band, and blessings.",
-    },
-    {
-      id: "wedding",
-      visual: "wedding",
-      name: "Marriage Ceremony (Vivah Sanskar)",
-      nameHindi: "विवाह संस्कार (पाणिग्रहण संस्कार)",
-      dayLabel: "Wednesday",
-      dayLabelHindi: "बुधवार",
-      date: "2 December 2026",
-      dateHindi: "२ दिसंबर २०२६",
-      time: "Auspicious Muhurat",
-      timeHindi: "शुभलग्नानुसार",
-      venue: "RR FARM",
-      venueHindi: "आर.आर. फार्म",
-      address: "Badli Road, Bahadurgarh-124507",
-      addressHindi: "बादली रोड, बहादुरगढ़-१२४५०७",
-      mapUrl: "https://www.google.com/maps/search/?api=1&query=RR+FARM+Badli+Road+Bahadurgarh+124507",
-      subItems: [
-        {
-          time: "06:00 PM",
-          timeHindi: "सायं 6:00 बजे",
-          title: "Dinner (Preeti Bhoj)",
-          titleHindi: "प्रीतिभोज",
-        },
-        {
-          time: "07:00 PM",
-          timeHindi: "सायं 7:00 बजे",
-          title: "Arrival of Barat",
-          titleHindi: "बारात आगमन",
-        },
-        {
-          time: "Auspicious Muhurat",
-          timeHindi: "शुभलग्नानुसार",
-          title: "Vivah Sanskar (Sacred Nuptial Rites)",
-          titleHindi: "पाणिग्रहण संस्कार",
-        },
-        {
-          time: "Taaron Ke Chaon Mein",
-          timeHindi: "तारों की छांव में",
-          title: "Vidai",
-          titleHindi: "विदाई",
-        },
-      ],
-      description:
-        "The sacred Vedic Vivah Sanskar, Seven Sacred Vows around the Holy Fire, and blessing the newlyweds Komal & Deepak as they embark on their eternal journey.",
     },
     {
       id: "vidai",

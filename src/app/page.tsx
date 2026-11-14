@@ -38,7 +38,7 @@ export default function Home() {
             {wedding.family.brideLineage ? `, ${wedding.family.brideLineage}` : ""}) with{" "}
             <strong>{groom}</strong> (<span lang="hi">{wedding.groomHindi}</span>
             {wedding.family.groomLineage ? `, ${wedding.family.groomLineage}` : ""}), beginning on{" "}
-            {firstDate}.
+            {weddingDate}.
           </p>
           <div className="ornament" aria-hidden="true">
             ✦
@@ -62,16 +62,16 @@ export default function Home() {
         <VenueAndRsvpSection wedding={wedding} />
 
         <PickYourSide
-          groom={groom}
           bride={bride}
-          groomHindi={wedding.groomHindi}
+          groom={groom}
           brideHindi={wedding.brideHindi}
+          groomHindi={wedding.groomHindi}
         />
         <CountdownSection
           date={wedding.dateISO}
           displayDate={`${wedding.weddingDate} · ${wedding.weddingDay} | ${wedding.weddingDayHindi}`}
         />
-        <BlessingsSection groom={groom} bride={bride} />
+        <BlessingsSection bride={bride} groom={groom} />
         <SiteFooter wedding={wedding} />
         <MusicControl />
       </main>

@@ -292,7 +292,7 @@ export default function SiteFooter({ wedding }: { wedding: WeddingData }) {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={SCHEDULE_CARD_IMAGE_URL}
-                      alt={`${wedding.groom} & ${wedding.bride} Wedding Schedule Card`}
+                      alt={`${wedding.bride} & ${wedding.groom} Wedding Schedule Card`}
                       width={682}
                       height={1024}
                       loading="eager"
