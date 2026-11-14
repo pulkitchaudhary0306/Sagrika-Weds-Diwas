@@ -1,15 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import type { WeddingDaySchedule, WeddingEvent, WeddingEventVisual } from "@/data/wedding";
-import {
-  HaldiInteraction,
-  MehendiInteraction,
-  SangeetInteraction,
-  VidaiInteraction,
-  WeddingInteraction,
-} from "./EventInteractions";
 import { KalashIllustration, MandapIllustration } from "./SacredArtwork";
 
 const MONTHS: Record<string, number> = {
@@ -140,24 +132,6 @@ function MapPinIcon() {
 }
 
 function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
-  const [haldiDone, setHaldiDone] = useState(false);
-  const [mehendiDone, setMehendiDone] = useState(false);
-  const [sangeetDone, setSangeetDone] = useState(false);
-  const [weddingDone, setWeddingDone] = useState(false);
-  const [vidaiDone, setVidaiDone] = useState(false);
-
-  const isHaldi = event.interactionType === "haldi";
-  const isMehendi = event.interactionType === "mehendi";
-  const isSangeet = event.interactionType === "sangeet";
-  const isWedding = event.interactionType === "wedding";
-  const isVidai = event.interactionType === "vidai";
-  const locked =
-    (isHaldi && !haldiDone) ||
-    (isMehendi && !mehendiDone) ||
-    (isSangeet && !sangeetDone) ||
-    (isWedding && !weddingDone) ||
-    (isVidai && !vidaiDone);
-  const unlocked = !locked;
   const calUrl = googleCalendarUrl(event);
   const mapUrl = directionsUrl(event);
   const media = EVENT_MEDIA[event.visual] || EVENT_MEDIA.wedding;
@@ -165,9 +139,7 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
   return (
     <article
       className={`event-card event-card--${event.visual} ${index % 2 ? "event-card--reverse" : ""}`}
-      data-interaction-type={event.interactionType || undefined}
-      aria-labelledby={unlocked ? `event-${event.id}-title` : undefined}
-      aria-label={unlocked ? undefined : `${event.name} event`}
+      aria-labelledby={`event-${event.id}-title`}
     >
       <div className="event-card__media">
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -181,12 +153,8 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
         />
       </div>
 
-      <div
-        className={`event-card__content ${
-          locked ? "event-card__content--interaction-locked" : ""
-        }`}
-      >
-        <div className="event-card__details-content" aria-hidden={!unlocked}>
+      <div className="event-card__content">
+        <div className="event-card__details-content">
           <p className="event-card__date">
             {event.dayLabel} (<span lang="hi">{event.dayLabelHindi}</span>) · {event.date} ·{" "}
             {event.time}
@@ -279,42 +247,6 @@ function EventCard({ event, index }: { event: WeddingEvent; index: number }) {
             )}
           </div>
         </div>
-
-        {isHaldi && (
-          <HaldiInteraction
-            event={event}
-            completed={haldiDone}
-            onComplete={() => setHaldiDone(true)}
-          />
-        )}
-        {isMehendi && (
-          <MehendiInteraction
-            event={event}
-            completed={mehendiDone}
-            onComplete={() => setMehendiDone(true)}
-          />
-        )}
-        {isSangeet && (
-          <SangeetInteraction
-            event={event}
-            completed={sangeetDone}
-            onComplete={() => setSangeetDone(true)}
-          />
-        )}
-        {isWedding && (
-          <WeddingInteraction
-            event={event}
-            completed={weddingDone}
-            onComplete={() => setWeddingDone(true)}
-          />
-        )}
-        {isVidai && (
-          <VidaiInteraction
-            event={event}
-            completed={vidaiDone}
-            onComplete={() => setVidaiDone(true)}
-          />
-        )}
       </div>
     </article>
   );
