@@ -67,6 +67,7 @@ function buildWhatsAppUrl(phone: string, text: string): string {
 export default function VenueAndRsvpSection({ wedding }: { wedding: WeddingData }) {
   const reduceMotion = useReducedMotion();
   const { weddingVenue, family } = wedding;
+  const { rsvpList, shiningStars } = family;
 
   return (
     <>
@@ -179,29 +180,43 @@ export default function VenueAndRsvpSection({ wedding }: { wedding: WeddingData 
               ))}
             </div>
 
-            {family.rsvpList && family.rsvpList.length > 0 && (
+            {rsvpList && rsvpList.length > 0 && (
               <div className="host-card__rsvp-group">
                 <p className="host-card__rsvp-label">
                   <span lang="hi">दर्शनाभिलाषी</span> · R.S.V.P
                 </p>
                 <div className="host-card__rsvp-names">
-                  {family.rsvpList.map((name) => (
-                    <span key={name} className="host-card__rsvp-pill">
-                      {name}
+                  {rsvpList.map((name, idx) => (
+                    <span key={name} className="host-card__name-item">
+                      <span className="host-card__name-text">{name}</span>
+                      {idx < rsvpList.length - 1 && (
+                        <span className="host-card__separator" aria-hidden="true">
+                          ·
+                        </span>
+                      )}
                     </span>
                   ))}
                 </div>
               </div>
             )}
 
-            {family.shiningStars && family.shiningStars.length > 0 && (
+            {shiningStars && shiningStars.length > 0 && (
               <div className="host-card__stars-group">
                 <p className="host-card__stars-label">
                   <span lang="hi">बाल मनुहार</span> · Special Invitation From Our Shining Stars
                 </p>
-                <p className="host-card__stars-names">
-                  {family.shiningStars.join(" · ")}
-                </p>
+                <div className="host-card__stars-names">
+                  {shiningStars.map((name, idx) => (
+                    <span key={name} className="host-card__name-item">
+                      <span className="host-card__name-text">{name}</span>
+                      {idx < shiningStars.length - 1 && (
+                        <span className="host-card__separator" aria-hidden="true">
+                          ·
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </div>
               </div>
             )}
 
