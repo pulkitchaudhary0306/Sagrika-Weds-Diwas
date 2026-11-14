@@ -34,8 +34,8 @@ const siteUrl =
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
     : "http://localhost:3000");
 
-const title = `${wedding.groom} & ${wedding.bride} (${wedding.groomHindi} परिणय ${wedding.brideHindi}) | Wedding Invitation`;
-const description = `॥ शुभ विवाह ॥ With the blessings of our families (${wedding.family.hosts}), we cordially invite you to celebrate the wedding of ${wedding.groom} & ${wedding.bride} on ${wedding.weddingDay}, ${wedding.weddingDate} in Raiwala, Dehradun.`;
+const title = `${wedding.bride} & ${wedding.groom} (${wedding.brideHindi} संग ${wedding.groomHindi}) | Wedding Invitation`;
+const description = `॥ शुभ विवाह ॥ With the heavenly blessings of Almighty (${wedding.family.hosts}), we cordially invite you to celebrate the wedding ceremony of ${wedding.bride} & ${wedding.groom} on ${wedding.weddingDay}, ${wedding.weddingDate} at ${wedding.weddingVenue.name}, ${wedding.weddingVenue.road}.`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -45,18 +45,18 @@ export const metadata: Metadata = {
     type: "website",
     title,
     description,
-    images: [{ url: "/media/final-assets/couple-master.webp", alt: title }],
+    images: [{ url: "/media/final-assets/card-page-1.jpg", alt: title }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/media/final-assets/couple-master.webp"],
+    images: ["/media/final-assets/card-page-1.jpg"],
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#741f32",
+  themeColor: "#5f0005",
   width: "device-width",
   initialScale: 1,
 };

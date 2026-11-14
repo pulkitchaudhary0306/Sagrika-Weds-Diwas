@@ -268,12 +268,12 @@ export default function EventsSection({
           <MandapIllustration className="events-section__mandap" />
           <KalashIllustration className="events-section__kalash" />
         </div>
-        <p>4 days of celebration · 8 – 11 December 2026</p>
+        <p>Golden Moments · 1 – 2 December 2026</p>
         <h2 id="events-title">
           <span className="events-section__title-hi" lang="hi">
             मांगलिक कार्यक्रम
           </span>
-          <span>The Festivities</span>
+          <span>Golden Moments</span>
         </h2>
         <span aria-hidden="true">✦</span>
       </header>

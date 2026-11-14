@@ -176,15 +176,15 @@ export default function SiteFooter({ wedding }: { wedding: WeddingData }) {
         <p className="site-footer__closing">With love, we begin forever.</p>
 
         <p className="site-footer__names-hi" lang="hi">
-          <span>{wedding.groomHindi}</span>
-          <i>{wedding.parinayLabel}</i>
           <span>{wedding.brideHindi}</span>
+          <i>{wedding.parinayLabel}</i>
+          <span>{wedding.groomHindi}</span>
         </p>
 
         <p className="site-footer__names">
-          <span>{wedding.groom}</span>
-          <i>&amp;</i>
           <span>{wedding.bride}</span>
+          <i>&amp;</i>
+          <span>{wedding.groom}</span>
         </p>
 
         <p className="site-footer__hosts">

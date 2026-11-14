@@ -85,7 +85,7 @@ export default function VenueAndRsvpSection({ wedding }: { wedding: WeddingData 
             <span className="venue-section__hi" lang="hi">
               {weddingVenue.headingHindi}
             </span>
-            <span>Reception Venue &amp; Directions</span>
+            <span>Wedding Venue &amp; Directions</span>
           </h2>
 
           <div className="venue-card">
@@ -166,7 +166,7 @@ export default function VenueAndRsvpSection({ wedding }: { wedding: WeddingData 
                     <a
                       href={buildWhatsAppUrl(
                         phone,
-                        `नमस्ते 🙏 We received the wedding invitation for ${wedding.groom} & ${wedding.bride} on ${wedding.weddingDate}!`,
+                        `नमस्ते 🙏 We received the wedding invitation for ${wedding.bride} & ${wedding.groom} on ${wedding.weddingDate}!`,
                       )}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -178,6 +178,43 @@ export default function VenueAndRsvpSection({ wedding }: { wedding: WeddingData 
                 </div>
               ))}
             </div>
+
+            {family.rsvpList && family.rsvpList.length > 0 && (
+              <div className="host-card__rsvp-group">
+                <p className="host-card__rsvp-label">
+                  <span lang="hi">दर्शनाभिलाषी</span> · R.S.V.P
+                </p>
+                <div className="host-card__rsvp-names">
+                  {family.rsvpList.map((name) => (
+                    <span key={name} className="host-card__rsvp-pill">
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {family.shiningStars && family.shiningStars.length > 0 && (
+              <div className="host-card__stars-group">
+                <p className="host-card__stars-label">
+                  <span lang="hi">बाल मनुहार</span> · Special Invitation From Our Shining Stars
+                </p>
+                <p className="host-card__stars-names">
+                  {family.shiningStars.join(" · ")}
+                </p>
+              </div>
+            )}
+
+            {family.bestWishes && (
+              <div className="host-card__wishes">
+                <p className="host-card__wishes-en">{family.bestWishes}</p>
+                {family.bestWishesHindi && (
+                  <p className="host-card__wishes-hi" lang="hi">
+                    {family.bestWishesHindi}
+                  </p>
+                )}
+              </div>
+            )}
           </div>
         </motion.div>
       </section>

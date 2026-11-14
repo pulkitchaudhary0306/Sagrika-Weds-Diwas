@@ -168,8 +168,8 @@ export default function OpeningGate({ wedding }: { wedding: WeddingData }) {
               animate={{ opacity: stage === "idle" ? 1 : 0 }}
             >
               <p className="opening-gate__couple-hi" lang="hi">
-                {wedding.groomHindi} <span className="opening-gate__parinay">{wedding.parinayLabel}</span>{" "}
-                {wedding.brideHindi}
+                {wedding.brideHindi} <span className="opening-gate__parinay">{wedding.parinayLabel}</span>{" "}
+                {wedding.groomHindi}
               </p>
               <p className="opening-gate__tap">
                 <KalashIllustration className="opening-gate__kalash-mini" />

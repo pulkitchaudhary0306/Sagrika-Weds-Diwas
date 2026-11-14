@@ -1,11 +1,10 @@
 /**
- * Central wedding configuration for Sagarika & Divas.
+ * Central wedding configuration for Komal & Deepak.
  * All names, Hindi & English labels, dates, ceremony timings, venue details,
- * and contact numbers are stored in this single file.
+ * and contact numbers from the official invitation card are stored in this file.
  */
 
 export type WeddingEventVisual = "sangeet" | "haldi" | "mehendi" | "wedding" | "vidai";
-export type WeddingInteractionType = "haldi" | "mehendi" | "sangeet" | "wedding" | "vidai";
 
 export type CeremonySubItem = {
   time: string;
@@ -17,15 +16,14 @@ export type CeremonySubItem = {
 export type WeddingEvent = {
   id: string;
   visual: WeddingEventVisual;
-  interactionType?: WeddingInteractionType;
   name: string;
   nameHindi: string;
   dayLabel: string;
   dayLabelHindi: string;
-  /** Standard parseable date ("8 December 2026") for calendar export. */
+  /** Standard parseable date ("1 December 2026") for calendar export. */
   date: string;
   dateHindi: string;
-  /** Standard parseable time ("3:00 PM") for calendar export, or Muhurat text. */
+  /** Standard parseable time ("8:00 PM") for calendar export, or Muhurat text. */
   time: string;
   timeHindi: string;
   endTime?: string;
@@ -67,7 +65,7 @@ export type WeddingData = {
   weddingDate: string;
   weddingDay: string;
   weddingDayHindi: string;
-  /** ISO 8601 date-time with IST offset targeting Thursday, 10 December 2026. */
+  /** ISO 8601 date-time with IST offset targeting Wednesday, 2 December 2026. */
   dateISO: string;
   family: {
     senderHeadingHindi: string;
@@ -77,6 +75,12 @@ export type WeddingData = {
     address: string;
     addressHindi: string;
     contacts: string[];
+    rsvpList?: string[];
+    bestWishes?: string;
+    bestWishesHindi?: string;
+    shiningStars?: string[];
+    brideLineage?: string;
+    groomLineage?: string;
   };
   weddingVenue: {
     headingHindi: string;
@@ -98,144 +102,116 @@ export type WeddingData = {
   };
   /** Day-by-day summary exactly matching the printed Hindi/English card. */
   daySchedules: WeddingDaySchedule[];
-  /** Individual ceremony cards in chronological order (8–10 December 2026). */
+  /** Individual ceremony cards in chronological order (1–2 December 2026). */
   events: WeddingEvent[];
 };
 
 export const wedding: WeddingData = {
-  bride: "Sagrika",
-  brideHindi: "आयु० सागरिका",
-  groom: "Diwas",
-  groomHindi: "चि० दिवस",
-  initials: "D · S",
+  bride: "Komal",
+  brideHindi: "आयु० कोमल",
+  groom: "Deepak",
+  groomHindi: "चि० दीपक",
+  initials: "K · D",
   auspiciousHeading: "॥ शुभ विवाह ॥",
-  parinayLabel: "परिणय",
+  parinayLabel: "संग",
   ganeshMantra: "॥ श्री गणेशाय नमः ॥",
   sanskritShloka:
-    "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ । निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
+    "विघ्न हरण मंगल करण श्री गणपति महाराज । प्रथम निमंत्रण आपको पूरन करियो काज ॥",
   sanskritShlokaMeaning:
-    "O Lord Ganesha of the curved trunk and radiant as a million suns, bless these sacred wedding ceremonies and remove all obstacles always.",
-  weddingDate: "10 December 2026",
-  weddingDay: "Thursday",
-  weddingDayHindi: "गुरुवार",
-  dateISO: "2026-12-10T12:00:00+05:30",
+    "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ । निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥",
+  weddingDate: "2 December 2026",
+  weddingDay: "Wednesday",
+  weddingDayHindi: "बुधवार",
+  dateISO: "2026-12-02T18:00:00+05:30",
 
   family: {
     senderHeadingHindi: "दर्शनाभिलाषी / प्रेषक",
-    senderHeading: "With Warm Regards",
-    hosts: "Mrs.Durga Devi & Subedar Dil Bahadur Thapa Chhetri (Retd.)",
-    hostsHindi: "श्रीमती दुर्गा देवी एवं सूबेदार दिल बहादुर थापा क्षत्री (से.नि.)",
-    address: "Prateet Nagar, Raiwala, District Dehradun, Uttarakhand, India",
-    addressHindi: "प्रतीत नगर, रायवाला, जनपद देहरादून",
-    contacts: ["9997118366", "7889743382"],
+    senderHeading: "An Invitation From",
+    hosts: "Smt. Bijender Kaur & Late Sh. Subhash Chander",
+    hostsHindi: "श्रीमती बिजेंद्र कौर एवं स्वर्गीय श्री सुभाष चंदर",
+    address: "290/14, Quilla Mohalla, Bahadurgarh-124507",
+    addressHindi: "२९०/१४, किला मोहल्ला, बहादुरगढ़-१२४५०७",
+    contacts: ["9017824181", "8930385454"],
+    brideLineage: "Grand D/o Late Smt. Savitri Devi W/o Late Sh. Shivdutt",
+    groomLineage: "S/o Smt. Darshan Devi & Sh. Kaushal Kumar, R/o Bahadurgarh (Hr)",
+    rsvpList: [
+      "Sh. Prahlad Saini",
+      "Sh. Jai Saini",
+      "Sh. Chinu Saini",
+      "Sh. Anuj Saini",
+      "Sh. Yogesh Saini",
+      "Sh. Dhanvin Saini",
+    ],
+    bestWishes: "With Best Regards From All Saini Family",
+    bestWishesHindi: "समस्त सैनी परिवार",
+    shiningStars: ["Dhanvin Saini", "Samridhi Saini", "Namasya Saini"],
   },
 
   weddingVenue: {
-    headingHindi: "प्रीतिभोज स्थल",
-    name: "Ganesh Farm",
-    nameHindi: "गणेश फार्म",
-    landmark: "B.D.G. Camp Road",
-    landmarkHindi: "बी.डी.जी. कैंप रोड",
-    road: "Raiwala, Prateet Nagar, District Dehradun, Uttarakhand, India",
-    roadHindi: "रायवाला, प्रतीत नगर, देहरादून",
-    location:
-      "Ganesh Farm, B.D.G. Camp Road, Raiwala, District Dehradun, Uttarakhand, India",
-    locationHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-    mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
+    headingHindi: "शुभ विवाह स्थल",
+    name: "RR FARM",
+    nameHindi: "आर.आर. फार्म",
+    landmark: "Badli Road",
+    landmarkHindi: "बादली रोड",
+    road: "Bahadurgarh-124507, Haryana",
+    roadHindi: "बहादुरगढ़-१२४५०७, हरियाणा",
+    location: "RR FARM, Badli Road, Bahadurgarh-124507, Haryana, India",
+    locationHindi: "आर.आर. फार्म, बादली रोड, बहादुरगढ़-१२४५०७",
+    mapUrl: "https://www.google.com/maps/search/?api=1&query=RR+FARM+Badli+Road+Bahadurgarh+124507",
     mapEmbedUrl:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d136442.32331173884!2d78.06658143355197!3d30.03008560000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39093fe9c065d9b9%3A0xc883db5aa74f19bf!2sShree%20Ganesh%20farm%20wedding!5e1!3m2!1sen!2sus!4v1794464889623!5m2!1sen!2sus",
+      "https://maps.google.com/maps?q=RR%20FARM%20Badli%20Road%20Bahadurgarh%20124507&t=&z=15&ie=UTF8&iwloc=&output=embed",
   },
 
   blessing: {
-    message: "Your love and blessings mean the world to us.",
+    message: "Your gracious presence, love and blessings mean the world to us as our children embark on their sacred new journey.",
     gratitudeTitle: "With Love & Gratitude",
-    gratitudeMessage: "Thank you for your blessings. They mean the world to us.",
+    gratitudeMessage: "Thank you for joining our joy and blessing the couple.",
   },
 
   daySchedules: [
     {
-      date: "8 December 2026",
-      dateHindi: "8 दिसंबर 2026",
+      date: "1 December 2026",
+      dateHindi: "१ दिसंबर २०२६",
       day: "Tuesday",
       dayHindi: "मंगलवार",
       items: [
         {
-          title: "Family Ceremony",
-          titleHindi: "पारिवारिक कार्यक्रम",
-          time: "2:00 PM",
-          timeHindi: "2:00 बजे दोपहर",
-        },
-        {
-          title: "Women's Sangeet / Kirtan",
-          titleHindi: "महिला संगीत / कीर्तन",
-          time: "Time to be confirmed",
-          timeHindi: "समय शीघ्र घोषित",
+          title: "Ladies Sangeet",
+          titleHindi: "महिला संगीत",
+          time: "08:00 PM",
+          timeHindi: "रात्रि 8:00 बजे",
         },
       ],
     },
     {
-      date: "9 December 2026",
-      dateHindi: "9 दिसंबर 2026",
+      date: "2 December 2026",
+      dateHindi: "२ दिसंबर २०२६",
       day: "Wednesday",
       dayHindi: "बुधवार",
       items: [
         {
-          title: "Ganesh Pujan",
-          titleHindi: "गणेश पूजन",
-          time: "9:00 AM",
-          timeHindi: "9:00 बजे प्रातः",
+          title: "Dinner (Wedding Feast)",
+          titleHindi: "प्रीतिभोज",
+          time: "06:00 PM",
+          timeHindi: "सायं 6:00 बजे",
         },
         {
-          title: "Haldi Ceremony",
-          titleHindi: "हल्दी संस्कार",
-          time: "10:00 AM",
-          timeHindi: "10:00 बजे प्रातः",
+          title: "Arrival of Barat",
+          titleHindi: "बारात आगमन",
+          time: "07:00 PM",
+          timeHindi: "सायं 7:00 बजे",
         },
         {
-          title: "Mehendi",
-          titleHindi: "मेहंदी",
-          time: "7:00 PM",
-          timeHindi: "7:00 बजे सायं",
-        },
-      ],
-    },
-    {
-      date: "10 December 2026",
-      dateHindi: "10 दिसंबर 2026",
-      day: "Thursday",
-      dayHindi: "बृहस्पतिवार",
-      items: [
-        {
-          title: "Baraat Departure",
-          titleHindi: "बारात प्रस्थान",
-          time: "9:00 AM",
-          timeHindi: "9:00 बजे प्रातः",
-        },
-        {
-          title: "Wedding Ceremony",
-          titleHindi: "विवाह संस्कार",
-          time: "As per auspicious wedding muhurat",
+          title: "Marriage Ceremony (Vivah Sanskar)",
+          titleHindi: "विवाह संस्कार (पाणिग्रहण संस्कार)",
+          time: "Auspicious Muhurat",
           timeHindi: "शुभलग्नानुसार",
         },
         {
-          title: "Groom & Bride's Griha Pravesh",
-          titleHindi: "वर-वधू गृह प्रवेश",
-          time: "6:00 PM",
-          timeHindi: "6:00 बजे सायं",
-        },
-      ],
-    },
-    {
-      date: "11 December 2026",
-      dateHindi: "11 दिसंबर 2026",
-      day: "Friday",
-      dayHindi: "शुक्रवार",
-      items: [
-        {
-          title: "Preeti Bhoj (Wedding Reception Feast)",
-          titleHindi: "प्रीतिभोज (शुभ विवाह स्वागत भोज)",
-          time: "7:00 PM",
-          timeHindi: "7:00 बजे सायं",
+          title: "Vidai",
+          titleHindi: "विदाई (तारों की छांव में)",
+          time: "Taaron Ke Chaon Mein",
+          timeHindi: "तारों की छांव में",
         },
       ],
     },
@@ -245,152 +221,122 @@ export const wedding: WeddingData = {
     {
       id: "sangeet",
       visual: "sangeet",
-      interactionType: "sangeet",
-      name: "Family Ceremony & Women's Sangeet (Kirtan)",
-      nameHindi: "पारिवारिक कार्यक्रम एवं महिला संगीत (कीर्तन)",
+      name: "Ladies Sangeet",
+      nameHindi: "महिला संगीत",
       dayLabel: "Tuesday",
       dayLabelHindi: "मंगलवार",
-      date: "8 December 2026",
-      dateHindi: "8 दिसंबर 2026",
-      time: "2:00 PM",
-      timeHindi: "2:00 बजे दोपहर से",
-      venue: "Ganesh Farm, B.D.G. Camp Road, Raiwala",
-      venueHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला",
-      address: "B.D.G. Camp Road, Raiwala, Prateet Nagar, Dehradun, Uttarakhand",
-      addressHindi: "बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-      mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
-      subItems: [
-        {
-          time: "2:00 PM",
-          timeHindi: "2:00 बजे दोपहर",
-          title: "Family Ceremony",
-          titleHindi: "पारिवारिक कार्यक्रम",
-        },
-        {
-          time: "Time to be confirmed",
-          timeHindi: "समय शीघ्र घोषित",
-          title: "Women's Sangeet / Kirtan",
-          titleHindi: "महिला संगीत / कीर्तन",
-        },
-      ],
+      date: "1 December 2026",
+      dateHindi: "१ दिसंबर २०२६",
+      time: "08:00 PM",
+      timeHindi: "रात्रि 8:00 बजे",
+      venue: "290/14, Quilla Mohalla",
+      venueHindi: "२९०/१४, किला मोहल्ला",
+      address: "Quilla Mohalla, Bahadurgarh-124507",
+      addressHindi: "किला मोहल्ला, बहादुरगढ़-१२४५०७",
       description:
-        "An auspicious afternoon beginning with sacred family ceremonies at 2:00 PM, followed by devotional Kirtan, folk songs, lively dhol beats and joyful celebration.",
+        "An enchanting evening of joyful music, melodious wedding folk songs, traditional dance, and festive celebrations.",
     },
     {
-      id: "haldi",
-      visual: "haldi",
-      interactionType: "haldi",
-      name: "Ganesh Pujan & Haldi Ceremony",
-      nameHindi: "गणेश पूजन एवं हल्दी संस्कार",
+      id: "dinner",
+      visual: "wedding",
+      name: "Wedding Feast (Dinner)",
+      nameHindi: "प्रीतिभोज",
       dayLabel: "Wednesday",
       dayLabelHindi: "बुधवार",
-      date: "9 December 2026",
-      dateHindi: "9 दिसंबर 2026",
-      time: "9:00 AM",
-      timeHindi: "9:00 बजे प्रातः (हल्दी संस्कार: 10:00 बजे प्रातः)",
-      venue: "Ganesh Farm, B.D.G. Camp Road, Raiwala",
-      venueHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला",
-      address: "B.D.G. Camp Road, Raiwala, Prateet Nagar, Dehradun, Uttarakhand",
-      addressHindi: "बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-      mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
-      subItems: [
-        {
-          time: "9:00 AM",
-          timeHindi: "9:00 बजे प्रातः",
-          title: "Ganesh Pujan",
-          titleHindi: "गणेश पूजन",
-        },
-        {
-          time: "10:00 AM",
-          timeHindi: "10:00 बजे प्रातः",
-          title: "Haldi Ceremony",
-          titleHindi: "हल्दी संस्कार",
-        },
-      ],
+      date: "2 December 2026",
+      dateHindi: "२ दिसंबर २०२६",
+      time: "06:00 PM",
+      timeHindi: "सायं 6:00 बजे",
+      venue: "RR FARM",
+      venueHindi: "आर.आर. फार्म",
+      address: "Badli Road, Bahadurgarh-124507",
+      addressHindi: "बादली रोड, बहादुरगढ़-१२४५०७",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=RR+FARM+Badli+Road+Bahadurgarh+124507",
       description:
-        "Invoking Lord Ganesha's divine blessings at 9:00 AM, followed by the auspicious Haldi ceremony at 10:00 AM with loved ones.",
+        "A grand celebration feast welcoming family and guests to partake in delicious culinary delights on this joyous evening.",
     },
     {
-      id: "mehendi",
-      visual: "mehendi",
-      interactionType: "mehendi",
-      name: "Mehendi Ceremony",
-      nameHindi: "मेहंदी संस्कार",
+      id: "barat",
+      visual: "wedding",
+      name: "Arrival of Barat",
+      nameHindi: "बारात आगमन",
       dayLabel: "Wednesday",
       dayLabelHindi: "बुधवार",
-      date: "9 December 2026",
-      dateHindi: "9 दिसंबर 2026",
-      time: "7:00 PM",
-      timeHindi: "7:00 बजे सायं",
-      venue: "Ganesh Farm, B.D.G. Camp Road, Raiwala",
-      venueHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला",
-      address: "B.D.G. Camp Road, Raiwala, Prateet Nagar, Dehradun, Uttarakhand",
-      addressHindi: "बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-      mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
+      date: "2 December 2026",
+      dateHindi: "२ दिसंबर २०२६",
+      time: "07:00 PM",
+      timeHindi: "सायं 7:00 बजे",
+      venue: "RR FARM",
+      venueHindi: "आर.आर. फार्म",
+      address: "Badli Road, Bahadurgarh-124507",
+      addressHindi: "बादली रोड, बहादुरगढ़-१२४५०७",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=RR+FARM+Badli+Road+Bahadurgarh+124507",
       description:
-        "An enchanting evening of intricate henna artistry, music, celebration and festive joy under the lights.",
+        "Warm and joyous ceremonial welcome to the Groom, his family, and the Barat with garland exchanges, band, and blessings.",
     },
     {
       id: "wedding",
       visual: "wedding",
-      interactionType: "wedding",
-      name: "Baraat Departure, Vivah Sanskar & Griha Pravesh",
-      nameHindi: "बारात प्रस्थान · विवाह संस्कार · गृह प्रवेश",
-      dayLabel: "Thursday",
-      dayLabelHindi: "बृहस्पतिवार",
-      date: "10 December 2026",
-      dateHindi: "10 दिसंबर 2026",
-      time: "9:00 AM",
-      timeHindi: "9:00 बजे प्रातः से शुभलग्नानुसार",
-      venue: "Football Ground",
-      venueHindi: "फुटबॉल ग्राउंड",
-      address:
-        "Near Buras Aadhar Apartment, Thakurpur Road, Dehradun, Uttarakhand, India",
-      addressHindi: "निकट बुरांस आधार अपार्टमेंट, ठाकुरपुर रोड, देहरादून",
-      mapUrl:
-        "https://www.google.com/maps/search/?api=1&query=Football+Ground+Near+Buras+Aadhar+Apartment+Thakurpur+Road+Dehradun+Uttarakhand",
+      name: "Marriage Ceremony (Vivah Sanskar)",
+      nameHindi: "विवाह संस्कार (पाणिग्रहण संस्कार)",
+      dayLabel: "Wednesday",
+      dayLabelHindi: "बुधवार",
+      date: "2 December 2026",
+      dateHindi: "२ दिसंबर २०२६",
+      time: "Auspicious Muhurat",
+      timeHindi: "शुभलग्नानुसार",
+      venue: "RR FARM",
+      venueHindi: "आर.आर. फार्म",
+      address: "Badli Road, Bahadurgarh-124507",
+      addressHindi: "बादली रोड, बहादुरगढ़-१२४५०७",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=RR+FARM+Badli+Road+Bahadurgarh+124507",
       subItems: [
         {
-          time: "9:00 AM",
-          timeHindi: "9:00 बजे प्रातः",
-          title: "Baraat Departure",
-          titleHindi: "बारात प्रस्थान",
+          time: "06:00 PM",
+          timeHindi: "सायं 6:00 बजे",
+          title: "Dinner (Preeti Bhoj)",
+          titleHindi: "प्रीतिभोज",
+        },
+        {
+          time: "07:00 PM",
+          timeHindi: "सायं 7:00 बजे",
+          title: "Arrival of Barat",
+          titleHindi: "बारात आगमन",
         },
         {
           time: "Auspicious Muhurat",
           timeHindi: "शुभलग्नानुसार",
-          title: "Wedding Ceremony (Vivah Sanskar)",
-          titleHindi: "विवाह संस्कार",
+          title: "Vivah Sanskar (Sacred Nuptial Rites)",
+          titleHindi: "पाणिग्रहण संस्कार",
         },
         {
-          time: "6:00 PM",
-          timeHindi: "6:00 बजे सायं",
-          title: "Groom & Bride's Griha Pravesh",
-          titleHindi: "वर-वधू गृह प्रवेश",
+          time: "Taaron Ke Chaon Mein",
+          timeHindi: "तारों की छांव में",
+          title: "Vidai",
+          titleHindi: "विदाई",
         },
       ],
       description:
-        "Baraat departure begins at 9:00 AM, followed by the sacred Vivah Sanskar rituals as per auspicious Muhurat at Football Ground, Near Buras Aadhar Apartment, Thakurpur Road, Dehradun, and welcoming the newlyweds during Griha Pravesh at 6:00 PM.",
+        "The sacred Vedic Vivah Sanskar, Seven Sacred Vows around the Holy Fire, and blessing the newlyweds Komal & Deepak as they embark on their eternal journey.",
     },
     {
-      id: "preetibhoj",
+      id: "vidai",
       visual: "vidai",
-      interactionType: "vidai",
-      name: "Preeti Bhoj (Wedding Reception Feast)",
-      nameHindi: "प्रीतिभोज (स्वागत भोज)",
-      dayLabel: "Friday",
-      dayLabelHindi: "शुक्रवार",
-      date: "11 December 2026",
-      dateHindi: "11 दिसंबर 2026",
-      time: "7:00 PM",
-      timeHindi: "7:00 बजे सायं",
-      venue: "Ganesh Farm, B.D.G. Camp Road, Raiwala",
-      venueHindi: "गणेश फार्म, बी.डी.जी. कैंप रोड, रायवाला",
-      address: "B.D.G. Camp Road, Raiwala, Prateet Nagar, Dehradun, Uttarakhand",
-      addressHindi: "बी.डी.जी. कैंप रोड, रायवाला, प्रतीत नगर, देहरादून",
-      mapUrl: "https://maps.app.goo.gl/ZYEeJWz13mzooyMcA",
+      name: "Vidai",
+      nameHindi: "विदाई (तारों की छांव में)",
+      dayLabel: "Wednesday",
+      dayLabelHindi: "बुधवार",
+      date: "2 December 2026",
+      dateHindi: "२ दिसंबर २०२६",
+      time: "Taaron Ke Chaon Mein",
+      timeHindi: "तारों की छांव में",
+      venue: "RR FARM",
+      venueHindi: "आर.आर. फार्म",
+      address: "Badli Road, Bahadurgarh-124507",
+      addressHindi: "बादली रोड, बहादुरगढ़-१२४५०७",
+      mapUrl: "https://www.google.com/maps/search/?api=1&query=RR+FARM+Badli+Road+Bahadurgarh+124507",
       description:
-        "A grand evening of celebratory dining, warmth and heartfelt blessings to honour the union of Diwas and Sagrika with family and friends.",
+        "A poignant, heartfelt farewell under the starry night sky with tears of love, eternal blessings, and wishes for lifelong joy.",
     },
   ],
 };

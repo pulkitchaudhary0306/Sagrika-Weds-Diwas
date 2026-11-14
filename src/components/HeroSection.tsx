@@ -174,15 +174,15 @@ export default function HeroSection({ wedding }: { wedding: WeddingData }) {
       </motion.p>
 
       <motion.p className="hero-section__hindi-names" lang="hi" {...fadeUp(0.1)}>
-        <span>{wedding.groomHindi}</span>
-        <em className="hero-section__parinay">{wedding.parinayLabel}</em>
         <span>{wedding.brideHindi}</span>
+        <em className="hero-section__parinay">{wedding.parinayLabel}</em>
+        <span>{wedding.groomHindi}</span>
       </motion.p>
 
       <motion.h1 id="hero-couple-names" className="hero-section__names" {...fadeUp(0.14)}>
-        <span>{wedding.groom}</span>
-        <i>&amp;</i>
         <span>{wedding.bride}</span>
+        <i>&amp;</i>
+        <span>{wedding.groom}</span>
       </motion.h1>
 
       <motion.div
