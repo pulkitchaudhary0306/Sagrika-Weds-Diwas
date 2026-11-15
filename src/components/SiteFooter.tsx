@@ -293,8 +293,8 @@ export default function SiteFooter({ wedding }: { wedding: WeddingData }) {
                     <img
                       src={SCHEDULE_CARD_IMAGE_URL}
                       alt={`${wedding.bride} & ${wedding.groom} Wedding Schedule Card`}
-                      width={682}
-                      height={1024}
+                      width={595}
+                      height={842}
                       loading="eager"
                       decoding="async"
                     />

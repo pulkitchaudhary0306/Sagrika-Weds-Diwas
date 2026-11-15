@@ -1,8 +1,8 @@
 import type { WeddingData, WeddingEvent } from "@/data/wedding";
 
 export const SCHEDULE_CARD_IMAGE_URL = "/media/final-assets/wedding-schedule-card.jpg";
-const CARD_WIDTH = 682;
-const CARD_HEIGHT = 1024;
+const CARD_WIDTH = 595;
+const CARD_HEIGHT = 842;
 
 const MONTHS: Record<string, number> = {
   january: 1,
