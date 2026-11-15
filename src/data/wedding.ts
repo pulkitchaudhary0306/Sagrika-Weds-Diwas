@@ -132,8 +132,8 @@ export const wedding: WeddingData = {
     address: "290/14, Quilla Mohalla, Bahadurgarh-124507",
     addressHindi: "२९०/१४, किला मोहल्ला, बहादुरगढ़-१२४५०७",
     contacts: ["9017824181", "8930385454"],
-    brideLineage: "Grand D/o  Smt. Savitri Devi W/o Late Sh. Shivdutt",
-    groomLineage: "S/o Smt. Darshan Devi & Sh. Kaushal Kumar, R/o Bahadurgarh (Hr)",
+    brideLineage: "Grand D/o Smt. Savitri Devi W/o Late Sh. Shivdutt",
+    groomLineage: "S/o Smt. Darshana Devi & Sh. Kaushal Kumar, R/o Bahadurgarh (Hr)",
     rsvpList: [
       "Sh. Prahlad Saini",
       "Sh. Jai Saini",
